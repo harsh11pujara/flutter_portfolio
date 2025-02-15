@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../constants/string_const.dart';
+import '../responsive/responsive_utils.dart';
 import '../theme/app_theme.dart';
-import '../utils/check_device.dart';
 import '../utils/custom_image_clipper.dart';
 
 class AboutMePage extends StatelessWidget {
@@ -11,7 +11,7 @@ class AboutMePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: deviceWidth(context),
+      width: ResponsiveUtils.screenWidth(context),
       height: 500,
       margin: const EdgeInsets.only(top: 100),
       child: Row(
@@ -23,35 +23,62 @@ class AboutMePage extends StatelessWidget {
             // height: 800,
             child: Stack(
               children: [
-                Positioned( left: deviceWidth(context) * 0.1 ,child: SizedBox(height: 200, width: 120, child: SvgPicture.asset('assets/images/image_bg_dots.svg', fit: BoxFit.cover, colorFilter: ColorFilter.mode(Colors.pink[50]!, BlendMode.srcIn),))),
-                Positioned(left: deviceWidth(context) * 0.15, top: 40,child: SizedBox(
-                  width: 300,
-                  height: 450,
-                  child: ClipPath(
-                    clipper: ImageClipper(),
-                    child: Image.asset('assets/images/profile_image/profile.jpg', fit: BoxFit.cover, height: 450, alignment: Alignment.center),
-                  ),
-                ))
+                Positioned(
+                    left: ResponsiveUtils.screenWidth(context) * 0.1,
+                    child: SizedBox(
+                        height: 200,
+                        width: 120,
+                        child: SvgPicture.asset(
+                          'assets/images/image_bg_dots.svg',
+                          fit: BoxFit.cover,
+                          colorFilter: ColorFilter.mode(
+                              Colors.pink[50]!, BlendMode.srcIn),
+                        ))),
+                Positioned(
+                    left: ResponsiveUtils.screenWidth(context) * 0.15,
+                    top: 40,
+                    child: SizedBox(
+                      width: 300,
+                      height: 450,
+                      child: ClipPath(
+                        clipper: ImageClipper(),
+                        child: Image.asset(
+                            'assets/images/profile_image/profile.jpg',
+                            fit: BoxFit.cover,
+                            height: 450,
+                            alignment: Alignment.center),
+                      ),
+                    ))
               ],
             ),
           ),
           Expanded(
-            flex: 6,
-          child: Padding(
-            padding: EdgeInsets.only(left: deviceWidth(context) * 0.15, right:  deviceWidth(context) * 0.05, bottom:  deviceWidth(context) * 0.1),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(aboutMeTitle, style: AppTheme.topicTitleTextStyle,),
-                const SizedBox(height: 20,),
-                Text(aboutMeDesc, style: AppTheme.topicDescriptionTextStyle,)
-              ],
-            ),
-          ))
+              flex: 6,
+              child: Padding(
+                padding: EdgeInsets.only(
+                    left: ResponsiveUtils.screenWidth(context) * 0.15,
+                    right: ResponsiveUtils.screenWidth(context) * 0.05,
+                    bottom: ResponsiveUtils.screenWidth(context) * 0.1),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      aboutMeTitle,
+                      style: AppTheme.topicTitleTextStyle,
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      aboutMeDesc,
+                      style: AppTheme.topicDescriptionTextStyle,
+                    )
+                  ],
+                ),
+              ))
         ],
       ),
     );
   }
 }
-

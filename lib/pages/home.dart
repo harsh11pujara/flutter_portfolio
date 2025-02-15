@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/responsive/responsive_utils.dart';
 import 'package:flutter_svg/svg.dart';
 import '../pages/landing_page.dart';
 import '../pages/about_me_page.dart';
 import '../pages/skills_page.dart';
 import '../pages/work_page.dart';
-import '../utils/check_device.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -21,7 +21,7 @@ class _HomeState extends State<Home> {
           child: Column(
         children: [
           SizedBox(
-            width: deviceWidth(context),
+            width: ResponsiveUtils.screenWidth(context),
             height: 1350,
             child: Stack(
               children: [
@@ -30,6 +30,7 @@ class _HomeState extends State<Home> {
                   children: [
                     /// LANDING PAGE
                     LandingPage(),
+
                     /// About Me
                     AboutMePage(),
                   ],
@@ -38,7 +39,7 @@ class _HomeState extends State<Home> {
             ),
           ),
           SizedBox(
-            width: deviceWidth(context),
+            width: ResponsiveUtils.screenWidth(context),
             height: 1550,
             child: Stack(
               children: [
@@ -48,6 +49,7 @@ class _HomeState extends State<Home> {
                   children: [
                     /// Skills page
                     SkillsPage(),
+
                     /// Work page
                     WorkPage(),
                   ],
@@ -55,8 +57,12 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
+
           /// Contact me
-          Container(height: 500, color: Colors.blue[100],)
+          Container(
+            height: 500,
+            color: Colors.blue[100],
+          )
         ],
       )),
     );
@@ -75,8 +81,8 @@ class _HomeState extends State<Home> {
       right: 0,
       top: 0,
       child: SizedBox(
-        width: deviceWidth(context) * 0.8,
-        height: deviceHeight(context) * 1.8 ,
+        width: ResponsiveUtils.screenWidth(context) * 0.8,
+        height: ResponsiveUtils.screenHeight(context) * 1.8,
         child: SvgPicture.asset(
           'assets/images/skills_bg.svg',
           // height: 1500,
