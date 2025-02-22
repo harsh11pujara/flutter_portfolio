@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/responsive/responsive_utils.dart';
 import 'package:flutter_svg/svg.dart';
 import '../pages/landing_page.dart';
 import '../pages/about_me_page.dart';
 import '../pages/skills_page.dart';
 import '../pages/work_page.dart';
+import '../utils/responsive_layout.dart';
+import '../widgets/appbar.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -17,6 +18,9 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: ResponsiveUtils.isMobile(context) ? Drawer() : null,
+      appBar: !ResponsiveUtils.isMobile(context) ? AppBar(title: const CustomAppbar(), backgroundColor: Colors.transparent,) : AppBar(backgroundColor: Colors.transparent,),
+      extendBodyBehindAppBar: true,
       body: SingleChildScrollView(
           child: Column(
         children: [
@@ -29,7 +33,7 @@ class _HomeState extends State<Home> {
                 const Column(
                   children: [
                     /// LANDING PAGE
-                    LandingPage(),
+                    Expanded(child: LandingPage()),
 
                     /// About Me
                     AboutMePage(),

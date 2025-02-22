@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/utils/responsive_layout.dart';
 import 'package:flutter_portfolio/widgets/appbar_buttons.dart';
-import '../responsive/responsive_utils.dart';
 
 class CustomAppbar extends StatefulWidget {
   const CustomAppbar({Key? key}) : super(key: key);
@@ -23,11 +22,25 @@ class _CustomAppbarState extends State<CustomAppbar> {
   }
 
   Widget mobileAppbar() {
-    return Container();
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+        maxHeight: 800,
+        maxWidth: 250,
+
+      ),
+      child: Drawer(
+        // width: 250,
+        child: Column(
+          children: views.map((e) {
+            return Text(e);
+          },).toList()
+        ),
+      ),
+    );
   }
 
   Widget tabletAppbar() {
-    print("width ${ResponsiveUtils.screenWidth(context)}");
+    debugPrint("width ${ResponsiveUtils.screenWidth(context)}");
     return SizedBox(
       height: 80,
       width: ResponsiveUtils.screenWidth(context),

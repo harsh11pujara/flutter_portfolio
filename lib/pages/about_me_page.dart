@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../constants/string_const.dart';
-import '../responsive/responsive_utils.dart';
 import '../theme/app_theme.dart';
 import '../utils/custom_image_clipper.dart';
+import '../utils/responsive_layout.dart';
 
 class AboutMePage extends StatelessWidget {
   const AboutMePage({Key? key}) : super(key: key);

@@ -3,8 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../constants/string_const.dart';
 import '../theme/app_colors.dart';
 import '../theme/app_theme.dart';
+import '../utils/responsive_layout.dart';
 import '../widgets/appbar.dart';
-import '../responsive/responsive_utils.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({Key? key}) : super(key: key);
@@ -18,7 +18,7 @@ class LandingPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const CustomAppbar(),
+          // Expanded(child: ),
           const SizedBox(
             height: 200,
           ),

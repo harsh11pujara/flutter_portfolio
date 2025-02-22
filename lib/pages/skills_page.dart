@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../constants/string_const.dart';
 import '../theme/app_theme.dart';
 import '../utils/custom_image_clipper.dart';
-import '../responsive/responsive_utils.dart';
+import '../utils/responsive_layout.dart';
 
 class SkillsPage extends StatelessWidget {
   const SkillsPage({Key? key}) : super(key: key);
